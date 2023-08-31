@@ -1,0 +1,79 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+	"height": 55,
+    "margin-bottom":-6,
+    //"margin-top":5,
+    "modules-left": ["wlr/workspaces"],
+    "modules-right": ["pulseaudio","network","battery","clock", "custom/wlogout"],
+    "modules-center": ["custom/dynamic_pill"],
+
+    // custom modules ////////////////
+    "custom/dynamic_pill": {
+        "return-type": "json",
+        "exec": "~/.config/hypr/scripts/tools/start_dyn",
+        "escape":true
+    },
+	"custom/wlogout": {
+		"format": "⏻",
+		"on-click": "wlogout --layout $HOME/.config/hypr/component/wlogout/layout --buttons-per-row 2" 
+	},
+    "custom/waybar-mpris": {
+         "return-type": "json",
+         "exec": "waybar-mpris --position --autofocus",
+         "on-click": "waybar-mpris --send toggle",
+         // This option will switch between players on right click.
+             "on-click-right": "waybar-mpris --send player-next",
+         // The options below will switch the selected player on scroll
+             // "on-scroll-up": "waybar-mpris --send player-next",
+             // "on-scroll-down": "waybar-mpris --send player-prev",
+         // The options below will go to next/previous track on scroll
+         "on-scroll-up": "waybar-mpris --send next",
+         "on-scroll-down": "waybar-mpris --send prev",
+         "escape": true
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 60,
+        "format": "{:%I:%M}",
+        "max-length": 25
+    },
+    "battery": {
+        "states": {
+            "warning": 25,
+            "critical": 20
+        },
+        "format": "{icon}",
+        "format-charging": "charging",
+        "format-plugged": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format": "via {gwaddr} {ifname} ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{bandwidthTotalOctets}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+}

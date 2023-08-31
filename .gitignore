@@ -1,0 +1,13 @@
+*
+
+!.gitignore
+
+!nvim/
+!nvim/**
+
+!kitty/
+!kitty/**
+
+
+!hypr/
+!hypr/**
