@@ -11,12 +11,6 @@ nvimTree.setup({
 	},
 	view = {
 		adaptive_size = true,
-		mappings = {
-			list = {
-				{ key = {"<Right>"}, action = "edit"},
-				{ key = {"<Left>"}, action = "close_node"},
-			}
-		}
 	},
 	renderer = {
 		add_trailing = true,

@@ -24,7 +24,7 @@ local servers = { ['pyright'] = {},
     ['html'] = {},
     ['clangd'] = {},
     ['cssls'] = {},
-    ['sumneko_lua'] = { Lua = { diagnostics = { globals = { 'vim' } },
+    ['lua_ls'] = { Lua = { diagnostics = { globals = { 'vim' } },
         workspace = { library = vim.api.nvim_get_runtime_file("", true) } } },
     ['jsonls'] = {},
     ['eslint'] = {},
@@ -33,7 +33,7 @@ local servers = { ['pyright'] = {},
 	['glslls'] = {},
 }
 
-local capabilities = cmpLsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmpLsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local on_attach = function(_, bufnr)
     local opts = { noremap = true, silent = true }
@@ -55,7 +55,7 @@ rustTools.setup({
         on_attach = function(_, bufnr)
             local opts = { noremap = true, silent = true }
             -- Hover actions
-            vim.keymap.set("n", "<C-space", rustTools.hover_actions.hover_actions, { buffer = bufnr })
+            vim.keymap.set("n", "K", rustTools.hover_actions.hover_actions, { buffer = bufnr })
             -- Code action groups
             vim.keymap.set("n", "<Leader>a", rustTools.code_action_group.code_action_group, { buffer = bufnr })
             vim.api.nvim_buf_set_keymap(bufnr, "n", "rf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts) -- to format with null ls source

@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'goolord/alpha-nvim'
+Plug 'nvimdev/dashboard-nvim'
 
 Plug 'folke/tokyonight.nvim'
 
@@ -24,6 +24,7 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvimdev/guard.nvim'
 
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'

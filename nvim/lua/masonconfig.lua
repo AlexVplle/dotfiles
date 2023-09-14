@@ -14,6 +14,6 @@ end
 
 mason.setup()
 masonLspConfig.setup({
-    ensure_installed = { 'pyright', 'tsserver', 'html', 'clangd', 'sumneko_lua', 'cssls', 'jsonls', 'eslint', 'bashls', 'prisma',},
+    ensure_installed = { 'pyright', 'tsserver', 'html', 'clangd', 'lua_ls', 'cssls', 'jsonls', 'eslint', 'bashls'},
     automatic_installation = true,
 })
