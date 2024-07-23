@@ -12,7 +12,5 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.mouse =
 
-vim.cmd "set foldmethod=indent"
-vim.cmd "set whichwrap+=<,>,h,l,[,]"
 vim.cmd "set termguicolors"
 vim.cmd "colorscheme tokyonight"
